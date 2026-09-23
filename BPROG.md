@@ -2,60 +2,54 @@
 
 # bProg
 
-bProg (byte Programming Interpreter) is a programming interpreter designed for byteOS. It currently features semicolon support and executing byteOS commands.
-It can also output to USART/UART in normal/loop mode.
+bProg (byte Program interpreter) is a programming interpreter for ByteOS. It currently features semicolon support and the ability to execute byteOS commands. It can also output to USART/UART in normal or loop mode.
 
 Functions:
 
-bProg has 3 functions as of right now.
+bProg has three functions as of right now.
 
-output(uart) - Output text to USART/UART. 
-Example:
-In file hello.bp 
+**output(uart)** - Outputs text to USART/UART. 
+<br>
+Example, in file `hello.bp`:
+<br>
 `output(uart) hi`
-This will output hi into USART/UART.
+<br>
+This outputs `hi` into USART/UART.
 
-output(uart, loop) - Output text to USART/UART in a breakable loop.
-Example:
-In file hello.bp 
+**output(uart, loop)** - Outputs text to USART/UART in a breakable loop.
+<br>
+Example, in file `hello.bp`:
+<br>
 `output(uart, loop) hi`
-This will output hi every time you press enter until you type exit and press enter into USART/UART.
+<br>
+This outputs `hi` every time you press enter, until you type exit and press enter into USART/UART.
 
-execute(commands) - Execute byteOS commands
-Example:
-In file echo.bp 
+**execute(commands)** - Executes ByteOS commands
+<br>
+Example, in file `echo.bp`:
+<br>
 `execute(commands) echo hi`
-This will execute echo hi, outputting `hi`
+<br>
+This executes `echo hi`, outputting `hi`.
 
 That is all of the functions.
-As mentioned before, bProg supports semicolons.
-Example:
-In file echo.bp 
-`execute(commands) echo hi;output(uart) bye`
-This will execute echo hi, outputting `hi` AND output 'bye' to USART/UART.
 
-There is also one quirk, you mustn't use a space after a semicolon. 
+As mentioned before, bProg supports semicolons.
+<br>
+Example, in file `echo.bp`:
+<br>
+`execute(commands) echo hi;output(uart) bye`
+<br>
+This executes `echo hi`, outputting `hi` and also outputs `bye` to USART/UART.
+
+There is also one quirk, you must not use a space after a semicolon. 
 
 This will work:
-
+<br>
 `execute(commands) echo hi;output(uart) bye`
 
-This won't:
-
+This will not:
+<br>
 `execute(commands) echo hi; output(uart) bye`
 
-This is because instead of running
-`echo hi`
-and
-`output(uart) bye`
-it will run
-`echo hi`
-and
-` output(uart) bye` with a space at the start.
-
-That is all, thank you for reading.
-
-
-
-
-
+This is because, instead of running `echo hi` and `output(uart) bye`, it will run `echo hi` and ` output(uart) bye` with a space at the start.
